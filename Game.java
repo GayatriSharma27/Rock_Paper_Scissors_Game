@@ -5,7 +5,7 @@ public class Game {
     public static void main(String[] args) {
         int i, userInput, num;
         int compScore = 0, userScore = 0;
-        int upperbound = 5;
+        int upperbound = 3;
         System.out.println("*** Welcome to the ROCK, PAPER AND SCISSORS Game***");
         System.out.println("Rules:=>\n\t1.Click on 1 for Rock, 2 for Paper and 3 for Scissors. \n\t2. You have 5 tries. \n\t3. Click one digit at one time.");
         System.out.println("All the best!!");
@@ -18,7 +18,7 @@ public class Game {
             System.out.printf("\nTrial #%d\n", i + 1);
             System.out.println("** Rock Paper Scissor **: ");
             userInput = sc.nextInt();
-            num = rand.nextInt(upperbound);
+            num = rand.nextInt(upperbound) + 1;
             switch (userInput) {
                 case 1:
                     if (userInput == num) {
@@ -85,12 +85,17 @@ public class Game {
 
 
         }
+        System.out.println("\n *** MATCH OVER *** ");
         System.out.println("\n**Total Scores**");
         System.out.println("  Computer Scores   |    User Scores ");
         System.out.printf("         %d          |        %d     ", compScore, userScore);
         if (compScore < userScore) {
             System.out.println("\n\t\tCongratualtions!!You Won!!!");
-        } else {
+        }
+        else if (compScore == userScore){
+            System.out.println("\n\t\tIt's a Tie!!!");
+        }
+        else {
             System.out.println("\n\t\tYou Lost!!! \n\t\t Better luck next time!!");
         }
 
